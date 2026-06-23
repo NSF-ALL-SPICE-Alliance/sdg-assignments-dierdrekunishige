@@ -362,7 +362,8 @@ Notes:
 
 Using the `filter()` function, filter for another region other than Oceania. Assign it to a variable named `new_region`.
 ```{r}
-
+new_region <- sdr_data %>% 
+  filter(regions_used_for_the_sdr == "MENA")
 ```
 
 **Important**
