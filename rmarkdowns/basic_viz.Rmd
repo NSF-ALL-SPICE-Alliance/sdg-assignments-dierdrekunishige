@@ -202,6 +202,20 @@ As we can see in the Oceania region, most Countries do not have the necessary da
 #### <span style="color: red;">Challenge 2</span>
 Create a new bar chart with countries only from the MENA region. 
 
+```{r}
+mena_sdr_data <- sdr_data %>% 
+  filter(regions_used_for_the_sdr == "MENA")
+```
+```{r}
+ggplot(mena_sdr_data, aes(x= goal_3_score, y = country)) +
+  geom_bar(stat = "identity") 
+```
+
+
+
+
+
+
 ### Histogram
 
 When do we use a **histogram**?
