@@ -131,6 +131,18 @@ Cool! It seems that the darkest blue points (countries with the lowest SDG 5 sco
 #### <span style="color: red;">Challenge 1</span>
 Create a scatterplot using two different SDG scores. Then, color the points by using a third SDG score. In a couple of sentences, describe what you see.
 
+```{r}
+ggplot(data = sdr_data, aes(x= goal_1_score, y = goal_8_score)) +
+  geom_point()
+```
+
+```{r}
+ggplot(data = sdr_data, aes(x= goal_1_score, y = goal_8_score, color = goal_10_score)) +
+  geom_point()
+```
+Interpretation: 
+Many countries scoring high on No Poverty (SDG 1) also tend to do well on Decent Work and Economic Growth (SDG 8). There is a denser cluster of lighter colored countries in the top right quadrant, indicating that countries doing better on SDG 1 score higher on both SDG 8 and SDG 10. Countries that are darker are more dispersed across the lower parts of the graph, reflecting generally lower scores across all three goals.
+
 ### Bar Chart
 
 When should we use a **bar chart**?
