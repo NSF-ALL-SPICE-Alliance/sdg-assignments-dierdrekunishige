@@ -1,3 +1,23 @@
+```{r}
+install.packages("ggpubr")
+```
+```{r}
+library(ggpubr)
+```
+```{r}
+install.packages("ggcorrplot")
+```
+```{r}
+library(ggcorrplot)
+```
+```{r}
+install.packages("plotly")
+```
+```{r}
+library(plotly)
+```
+
+
 ---
 title: "Statistics"
 author: "Connor Flynn | Victoria DelaCruz"
@@ -220,3 +240,16 @@ ggplot(sdr_data, aes(x = goal_12_score,
       - are there any points that don't follow the trend (outliers)
         
         - which country(s) are outliers?
+        
+        
+```{r}
+p <- ggplot(sdr_data, aes(x = goal_6_score, 
+                     y = goal_3_score,
+                     label = country)) + 
+  geom_point() +
+  geom_smooth() +
+  stat_cor() +
+  theme_minimal() 
+ggplotly(p)
+```
+Hypothesis: There is a positive correlation between Clean Water and Sanitation (SDG 6) and Good Health and Well-Being (SDG 3), suggesting that countries with better access to clean water also tend to have better health. The correlation is best among the countries with higher scores for both goals, where they cluster near the trend line. However, some countries are outliers. For example, Malta scores relatively low on SDG 6 (48.7) but high on SDG 3 (91.2). This could potentially be due to Malta's semi arid climate and low precipitation, which may limit Malta's score for SDG 6. However, they continue to maintain a strong health system that is independent from  their low scoring on clean water and sanitation.
